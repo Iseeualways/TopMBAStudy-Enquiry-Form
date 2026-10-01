@@ -41,7 +41,7 @@
             justify-content: center;
             align-items: center;
             padding: 2.5rem 1.5rem;
-            background-color: #fff;
+            background-color: #ffffff;
             /* background-image:
                 radial-gradient(circle at 92% 90%, rgba(255, 107, 44, 0.10) 0%, transparent 40%),
                 radial-gradient(rgba(0, 53, 86, 0.10) 1px, transparent 1.3px);
@@ -90,6 +90,7 @@
         }
 
         .live-badge {
+            position: relative;
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -99,11 +100,77 @@
             color: var(--navy);
             border: 2px solid var(--navy-deep);
             border-radius: 100px;
-            box-shadow: 3px 3px 0 var(--orange);
+
+            box-shadow: 4px 4px 0 var(--orange);
+
             font-size: 0.68rem;
             font-weight: 800;
             letter-spacing: 0.08em;
             text-transform: uppercase;
+
+            animation: keyPress 2s ease-in-out infinite;
+        }
+
+        /* Small pulse */
+        .live-badge::after {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border: 2px solid var(--orange);
+            border-radius: inherit;
+            opacity: 0;
+            pointer-events: none;
+
+            animation: clickPulse 2s ease-out infinite;
+        }
+
+        @keyframes keyPress {
+
+            0%,
+            70% {
+                transform: translate(0, 0);
+                box-shadow: 4px 4px 0 var(--orange);
+            }
+
+            75% {
+                transform: translate(4px, 4px);
+                box-shadow: 0 0 0 var(--orange);
+            }
+
+            82% {
+                transform: translate(4px, 4px);
+                box-shadow: 0 0 0 var(--orange);
+            }
+
+            87%,
+            100% {
+                transform: translate(0, 0);
+                box-shadow: 4px 4px 0 var(--orange);
+            }
+        }
+
+        @keyframes clickPulse {
+
+            0%,
+            73% {
+                transform: scale(1);
+                opacity: 0;
+            }
+
+            75% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+
+            90% {
+                transform: scale(1.08);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1.08);
+                opacity: 0;
+            }
         }
 
         .live-dot {
@@ -138,7 +205,9 @@
         .hero-title mark {
             display: inline;
             padding: 0.02em 0.11em;
-            background: linear-gradient(rgba(1, 53, 109, 0) 0%, rgba(1, 53, 109, 0) 10%, rgb(252, 113, 21) 100%);
+            background: linear-gradient(rgb(252, 113, 21), rgb(212, 85, 0) 100%);
+            border-right: 3px solid rgb(255, 255, 255);
+            border-bottom: 3px solid white;
             color: #ffffff;
             border-radius: 10px;
             -webkit-box-decoration-break: clone;
@@ -174,7 +243,7 @@
             border: 1.5px solid rgba(255, 255, 255, 0.28);
             border-radius: 14px;
             min-width: 0;
-            box-shadow: 4px 6px 0 #8f8f8f;
+            box-shadow: 4px 6px 0 #98928f;
         }
 
         .stat-value {
@@ -236,11 +305,11 @@
             width: 22px;
             height: 22px;
             background: var(--orange);
-            color: var(--navy-deep);
+            color: #fff;
             border: 1.5px solid #fff;
             border-radius: 8px;
-            font-size: 0.66rem;
-            font-weight: 800;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
 
         .help-row strong {
@@ -255,7 +324,7 @@
         }
 
         .form-title-group h2 {
-            font-size: clamp(1.7rem, 2.6vw, 2.1rem);
+            font-size: clamp(1.7rem, 2.6vw, 1.7rem);
             font-weight: 600;
             line-height: 1.15;
             letter-spacing: -0.025em;
@@ -265,8 +334,9 @@
         .form-title-group p {
             margin-top: 0.4rem;
             font-size: 0.84rem;
+            font-weight: 400;
             line-height: 1.5;
-            color: var(--text-muted);
+            color: rgb(43, 50, 72);
         }
 
         .form-layout {
@@ -317,10 +387,8 @@
         }
 
         .custom-input:focus {
-            transform: translate(-3px, -3px);
             box-shadow: 4px 4px 0 var(--navy);
             transition: box-shadow 0.15s ease, background 0.15s ease;
-
         }
 
         select.custom-input {
@@ -333,6 +401,7 @@
             background-position: right 1rem center;
             background-size: 14px;
             padding-right: 2.6rem;
+
         }
 
         textarea.custom-input {
@@ -399,14 +468,14 @@
             justify-content: center;
             gap: 10px;
             background: var(--orange);
-            color: var(--navy);
+            color: #fff;
             border: 2.5px solid var(--navy);
             border-radius: 14px;
             font-family: inherit;
-            font-size: 0.92rem;
-            font-weight: 800;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-weight: 600;
+            /* letter-spacing: 0.06em; */
+            /* text-transform: uppercase; */
             cursor: pointer;
             box-shadow: 6px 6px 0 var(--navy);
             transition: all 0.15s ease;
@@ -431,7 +500,7 @@
         .submit-btn svg {
             width: 20px;
             height: 20px;
-            stroke: var(--navy);
+            stroke: #fff;
             stroke-width: 3;
             transition: transform 0.2s ease;
         }
@@ -488,7 +557,7 @@
             }
 
             body {
-                padding: 1rem 0.75rem 1.75rem;
+                padding: 0.7rem 0.65rem 1.65rem;
             }
 
             .frame {
@@ -506,7 +575,12 @@
             }
 
             .hero-title {
-                font-size: 1.47rem;
+                font-size: 1.7rem;
+            }
+
+            .hero-title mark {
+                font-size: 1.5rem;
+                border-radius: 5px;
             }
 
             .stats {
@@ -514,7 +588,8 @@
             }
 
             .stat-value {
-                font-size: 1rem;
+                font-size: 1.1rem;
+                font-weight: 600;
             }
 
             .form-row {
@@ -610,8 +685,8 @@
         <!-- Right: form -->
         <section class="form-panel" id="apply">
             <div class="form-title-group">
-                <h2>Get Started Today</h2>
-                <p>Fill out this form and an advisor will contact you shortly.</p>
+                <h2>Find the Right Course & College</h2>
+                <p>Tell us what you're looking for and our admission counsellor will help you explore suitable options.</p>
             </div>
 
             <form action="#" method="POST" class="form-layout">
@@ -626,7 +701,7 @@
                     <div class="field-group">
                         <label for="mobile">Phone / WhatsApp *</label>
                         <input type="tel" id="mobile" name="mobile" class="custom-input"
-                            placeholder="Enter your mobile number" autocomplete="tel" required />
+                            placeholder="Enter your mobile" autocomplete="tel" required />
                         <input type="hidden" id="mobile_full" name="mobile_full" />
                     </div>
                     <div class="field-group">
@@ -639,7 +714,7 @@
                 <div class="field-group">
                     <label for="degree">What course are you looking for? *</label>
                     <input type="text" id="degree" name="degree" class="custom-input"
-                        placeholder="e.g. B.Tech Computer Science, MBA" required />
+                        placeholder="e.g. MBA in Marketing" required />
                 </div>
 
                 <div class="form-row">
@@ -688,14 +763,14 @@
                     <div class="field-group">
                         <label for="college">Preferred College (Optional)</label>
                         <input type="text" id="college" name="college" class="custom-input"
-                            placeholder="e.g. Christ University" />
+                            placeholder="e.g. Alliance University" />
                     </div>
                 </div>
 
                 <div class="field-group">
                     <label for="message">Your Message (Optional)</label>
                     <textarea id="message" name="message" class="custom-input"
-                        placeholder="Ask about fees, eligibility, hostel, or admissions..."></textarea>
+                        placeholder="Tell us what you need help with — course, college, fees, eligibility, admission or counselling."></textarea>
                 </div>
 
                 <button type="submit" class="submit-btn">
