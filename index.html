@@ -195,16 +195,51 @@
 
         .hero-title {
             margin-top: 1.4rem;
-            font-size: clamp(1.7rem, 3vw, 2.2rem);
+            font-size: clamp(1.7rem, 3vw, 2.3rem);
             font-weight: 600;
-            line-height: 1.32;
+            line-height: 1.22;
             letter-spacing: -0.015em;
             text-transform: uppercase;
         }
 
+        .hero-title span {
+            color: #ffffff;
+            font-weight: 600;
+            text-decoration: none;
+
+            display: inline-block;
+            position: relative;
+
+            clip-path: inset(0 100% 0 0);
+
+            text-shadow:
+                1px 1px 0 #d94f16,
+                2px 2px 0 #d94f16,
+                3px 3px 0 #c74712;
+
+            animation: revealWord 1s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+        }
+
+        @keyframes revealWord {
+            0% {
+                clip-path: inset(0 100% 0 0);
+                transform: translate3d(-8px, 0, 0);
+                opacity: 0;
+            }
+
+            60% {
+                opacity: 1;
+            }
+
+            100% {
+                clip-path: inset(0 0 0 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
         .hero-title mark {
             display: inline;
-            padding: 0.02em 0.11em;
+            padding: 0.02em 0.2rem;
             background: linear-gradient(rgb(252, 113, 21), rgb(212, 85, 0) 100%);
             border-right: 3px solid rgb(255, 255, 255);
             border-bottom: 3px solid white;
@@ -568,19 +603,21 @@
                 display: none;
             }
 
+            .form-title-group h2 {
+                font-size: 1.3rem;
+            }
 
             .info,
             .form-panel {
-                padding: 1.6rem 1.25rem;
+                padding: 1.6rem 0.8rem;
             }
 
             .hero-title {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
             }
 
-            .hero-title mark {
-                font-size: 1.5rem;
-                border-radius: 5px;
+            .hero-title span {
+                font-size: 1.6rem !important;
             }
 
             .stats {
@@ -594,7 +631,7 @@
 
             .form-row {
                 grid-template-columns: 1fr;
-                gap: 1.05rem;
+                gap: 1.6rem;
             }
 
             .custom-input {
@@ -630,7 +667,7 @@
         <section class="info">
             <div class="live-badge"><span class="live-dot"></span>Admissions ongoing</div>
 
-            <h1 class="hero-title">Plenty of B-Schools. <br><mark>One That Truly Fits You.</mark></h1>
+            <h1 class="hero-title">Plenty of <span>B-Schools</span> <br>One That Truly Fits You.</h1>
 
             <p class="hero-subtext">
                 Picking an MBA college means weighing programs, specializations, fees and study modes all at once,
@@ -686,7 +723,8 @@
         <section class="form-panel" id="apply">
             <div class="form-title-group">
                 <h2>Find the Right Course & College</h2>
-                <p>Tell us what you're looking for and our admission counsellor will help you explore suitable options.</p>
+                <p>Tell us what you're looking for and our admission counsellor will help you explore suitable options.
+                </p>
             </div>
 
             <form action="#" method="POST" class="form-layout">
@@ -700,8 +738,8 @@
                 <div class="form-row">
                     <div class="field-group">
                         <label for="mobile">Phone / WhatsApp *</label>
-                        <input type="tel" id="mobile" name="mobile" class="custom-input"
-                            placeholder="Enter your mobile" autocomplete="tel" required />
+                        <input type="tel" id="mobile" name="mobile" class="custom-input" placeholder="Enter your mobile"
+                            autocomplete="tel" required />
                         <input type="hidden" id="mobile_full" name="mobile_full" />
                     </div>
                     <div class="field-group">
