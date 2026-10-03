@@ -57,7 +57,7 @@
             background: #fff;
             border: 2px solid var(--navy-deep);
             border-radius: var(--radius-frame);
-            box-shadow: 6px 6px 0 var(--orange);
+            box-shadow: 3px 4px 0 rgba(255, 100, 45, 0.8);
             overflow: hidden;
         }
 
@@ -104,7 +104,7 @@
             box-shadow: 4px 4px 0 var(--orange);
 
             font-size: 0.68rem;
-            font-weight: 800;
+            font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
 
@@ -195,11 +195,10 @@
 
         .hero-title {
             margin-top: 1.4rem;
-            font-size: clamp(1.7rem, 3vw, 2.3rem);
+            font-size: clamp(1.7rem, 3vw, 2.6rem);
             font-weight: 600;
             line-height: 1.22;
             letter-spacing: -0.015em;
-            text-transform: uppercase;
         }
 
         .hero-title span {
@@ -214,26 +213,22 @@
 
             text-shadow:
                 1px 1px 0 #d94f16,
-                2px 2px 0 #d94f16,
-                3px 3px 0 #c74712;
+                2px 2px 0 #c74712;
 
-            animation: revealWord 1s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+            animation: revealWord 0.9s cubic-bezier(0.77, 0, 0.18, 1) forwards;
         }
 
         @keyframes revealWord {
             0% {
                 clip-path: inset(0 100% 0 0);
-                transform: translate3d(-8px, 0, 0);
+                transform: translateX(-12px);
                 opacity: 0;
-            }
-
-            60% {
-                opacity: 1;
             }
 
             100% {
                 clip-path: inset(0 0 0 0);
-                transform: translate3d(0, 0, 0);
+                transform: translateX(0);
+                opacity: 1;
             }
         }
 
@@ -252,10 +247,10 @@
         .hero-subtext {
             margin-top: 1.15rem;
             max-width: 61ch;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             line-height: 1.65;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.92);
+            font-weight: 400 !important;
+            color: rgb(255, 255, 255);
         }
 
         /* Stat chips */
@@ -302,9 +297,9 @@
         }
 
         .help-heading {
-            padding-bottom: 0.65rem;
+            padding-bottom: 0.95rem;
             border-bottom: 1.5px dashed rgba(255, 255, 255, 0.28);
-            font-size: 0.68rem;
+            font-size: 0.8rem;
             font-weight: 800;
             letter-spacing: 0.14em;
             text-transform: uppercase;
@@ -343,7 +338,7 @@
             color: #fff;
             border: 1.5px solid #fff;
             border-radius: 8px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
         }
 
@@ -368,10 +363,10 @@
 
         .form-title-group p {
             margin-top: 0.4rem;
-            font-size: 0.84rem;
-            font-weight: 400;
+            font-size: 0.9rem;
+            font-weight: 500;
             line-height: 1.5;
-            color: rgb(43, 50, 72);
+            color: rgb(100, 109, 137);
         }
 
         .form-layout {
@@ -390,7 +385,7 @@
         .field-group {
             display: flex;
             flex-direction: column;
-            gap: 0.45rem;
+            gap: 0.1rem;
             min-width: 0;
         }
 
@@ -406,7 +401,7 @@
             background: #fff;
             border: 0;
             border-radius: var(--radius-field);
-            border: 1px solid black;
+            border: 1px solid rgba(0, 0, 0, 0.423);
             font-family: inherit;
             font-size: 0.85rem;
             font-weight: 500;
@@ -422,7 +417,7 @@
         }
 
         .custom-input:focus {
-            box-shadow: 4px 4px 0 var(--navy);
+            box-shadow: 3px 3px 0 var(--navy);
             transition: box-shadow 0.15s ease, background 0.15s ease;
         }
 
@@ -463,6 +458,10 @@
             font-size: 0.85rem;
             font-weight: 500;
             color: var(--navy);
+        }
+
+        .required {
+            color: #e53935;
         }
 
         .iti__dropdown-content {
@@ -607,17 +606,26 @@
                 font-size: 1.3rem;
             }
 
+            .info {
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+            }
+
             .info,
             .form-panel {
                 padding: 1.6rem 0.8rem;
             }
 
+            .hero-subtext {
+                font-size: 13px;
+            }
+
             .hero-title {
-                font-size: 1.6rem;
+                font-size: 1.78rem;
             }
 
             .hero-title span {
-                font-size: 1.6rem !important;
+                font-size: 1.78rem !important;
             }
 
             .stats {
@@ -632,6 +640,11 @@
             .form-row {
                 grid-template-columns: 1fr;
                 gap: 1.6rem;
+            }
+
+            .form-title-group p {
+                font-size: 13px;
+                font-weight: 500
             }
 
             .custom-input {
@@ -670,20 +683,19 @@
             <h1 class="hero-title">Plenty of <span>B-Schools</span> <br>One That Truly Fits You.</h1>
 
             <p class="hero-subtext">
-                Picking an MBA college means weighing programs, specializations, fees and study modes all at once,
-                which is a lot to handle alone. At TopMBAStudy, our counsellors guide students and working
-                professionals through MBA colleges across India, help them compare their options side by side, and
-                offer tailored advice throughout the admission process.
+                Choosing an MBA college involves comparing programs, specializations, fees and study modes. TopMBAStudy
+                helps students and working professionals explore MBA colleges across India, compare options and get
+                personalized admission guidance.
             </p>
 
             <div class="stats">
                 <div class="stat">
                     <span class="stat-value">1,00,000+</span>
-                    <span class="stat-label">Students helped along the way</span>
+                    <span class="stat-label">Students Guided</span>
                 </div>
                 <div class="stat">
                     <span class="stat-value">1,000+</span>
-                    <span class="stat-label">Partner colleges &amp; universities</span>
+                    <span class="stat-label">Partner Colleges</span>
                 </div>
                 <div class="stat">
                     <span class="stat-value">30+ years</span>
@@ -691,7 +703,7 @@
                 </div>
                 <div class="stat">
                     <span class="stat-value">Since 1994</span>
-                    <span class="stat-label">In education</span>
+                    <span class="stat-label">In Education</span>
                 </div>
             </div>
 
@@ -730,34 +742,34 @@
             <form action="#" method="POST" class="form-layout">
 
                 <div class="field-group">
-                    <label for="fullname">Full Name *</label>
+                    <label for="fullname">Full Name <span class="required">*</span></label>
                     <input type="text" id="fullname" name="fullname" class="custom-input"
                         placeholder="Enter your full name" autocomplete="name" required />
                 </div>
 
                 <div class="form-row">
                     <div class="field-group">
-                        <label for="mobile">Phone / WhatsApp *</label>
+                        <label for="mobile">Phone / WhatsApp <span class="required">*</span></label>
                         <input type="tel" id="mobile" name="mobile" class="custom-input" placeholder="Enter your mobile"
                             autocomplete="tel" required />
                         <input type="hidden" id="mobile_full" name="mobile_full" />
                     </div>
                     <div class="field-group">
-                        <label for="email">Email Address *</label>
+                        <label for="email">Email Address <span class="required">*</span></label>
                         <input type="email" id="email" name="email" class="custom-input"
                             placeholder="Enter your email address" autocomplete="email" required />
                     </div>
                 </div>
 
                 <div class="field-group">
-                    <label for="degree">What course are you looking for? *</label>
+                    <label for="degree">What course are you looking for? <span class="required">*</span></label>
                     <input type="text" id="degree" name="degree" class="custom-input"
                         placeholder="e.g. MBA in Marketing" required />
                 </div>
 
                 <div class="form-row">
                     <div class="field-group">
-                        <label for="state">Your State *</label>
+                        <label for="state">Your State <span class="required">*</span></label>
                         <select id="state" name="state" class="custom-input" required>
                             <option value="" disabled selected hidden>Select your state</option>
                             <option value="andhra-pradesh">Andhra Pradesh</option>
